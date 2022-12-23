@@ -66,7 +66,26 @@ public class JDBC02_DDL {
 
         System.out.println("Islemden etkilenen satir sayisi : " + satirSayisi);
 
+        /*=======================================================================
+          ORNEK4: isciler tablosuna birden fazla yeni kayıt ekleyelim.
+
+            INSERT INTO isciler VALUES(70, 'HR', 5000)
+            INSERT INTO isciler VALUES(60, 'LAB', 3000)
+            INSERT INTO isciler VALUES(50, 'ARGE', 4000)
+         ========================================================================*/
+
+        String [] sorgular= {"INSERT INTO isciler VALUES(70, 'HR', 5000)",
+                "INSERT INTO isciler VALUES(60, 'LAB', 3000)",
+                "INSERT INTO isciler VALUES(50, 'ARGE', 4000)"};
+                int count =0;
+
+        for (String each : sorgular) {
+            count+= st.executeUpdate(each);
+
+        }
+        System.out.println(count + " satir eklendi!");
+        }
+
 
     }
 
-}
